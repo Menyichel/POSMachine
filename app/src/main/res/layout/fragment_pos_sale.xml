@@ -161,7 +161,7 @@
 
             <EditText
                 android:id="@+id/sale_total_editText"
-                android:layout_width="150dp"
+                android:layout_width="100dp"
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/edittext_outline_bg"
@@ -191,7 +191,7 @@
 
             <EditText
                 android:id="@+id/sale_tax_editText"
-                android:layout_width="150dp"
+                android:layout_width="100dp"
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/edittext_outline_bg"
@@ -223,7 +223,7 @@
 
             <EditText
                 android:id="@+id/sale_quantity2_editText"
-                android:layout_width="150dp"
+                android:layout_width="100dp"
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/edittext_outline_bg"
