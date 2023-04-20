@@ -19,12 +19,12 @@ public class DB extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create Table ItemInformation(CODE TEXT primary key, ITEM TEXT , UNIT INT , UNIT_PRICE TEXT)");
+        db.execSQL("create Table ItemInfo(CODE TEXT primary key, ITEM TEXT , UNIT INT , UNIT_PRICE TEXT)");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-       db.execSQL("drop Table if exists ItemInformation");
+       db.execSQL("drop Table if exists ItemInfo");
     }
 
     public Boolean insertInfo(String code, String item, int unit, String unit_price)
@@ -35,7 +35,7 @@ public class DB extends SQLiteOpenHelper {
         contentValues.put(ITEM , item);
         contentValues.put(UNIT , unit);
         contentValues.put(UNIT_PRICE , unit_price);
-        long result = db.insert("ItemInformation", null, contentValues);
+        long result = db.insert("ItemInfo", null, contentValues);
         if(result==-1){
             return false;
         }else{
@@ -57,7 +57,7 @@ public class DB extends SQLiteOpenHelper {
         String[] selectionArgs = {searchTerm};
 
         // Query the database
-        Cursor cursor = db.query("ItemInformation", projection, selection, selectionArgs, null, null, null);
+        Cursor cursor = db.query("ItemInfo", projection, selection, selectionArgs, null, null, null);
 
         // Get the item name from the cursor
         if (cursor.moveToNext()) {
@@ -87,7 +87,7 @@ public class DB extends SQLiteOpenHelper {
         String[] selectionArgs = {searchTerm};
 
         // Query the database
-        Cursor cursor = db.query("ItemInformation", projection, selection, selectionArgs, null, null, null);
+        Cursor cursor = db.query("ItemInfo", projection, selection, selectionArgs, null, null, null);
 
         // Get the item name from the cursor
         if (cursor.moveToNext()) {
@@ -104,7 +104,7 @@ public class DB extends SQLiteOpenHelper {
 
 
     public String addItem2(String searchTerm) {
-        String itemName = null;
+//        String itemName = null;
         String price = null;
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -117,18 +117,16 @@ public class DB extends SQLiteOpenHelper {
         String[] selectionArgs = {searchTerm};
 
         // Query the database
-        Cursor cursor = db.query("ItemInformation", projection, selection, selectionArgs, null, null, null);
+        Cursor cursor = db.query("ItemInfo", projection, selection, selectionArgs, null, null, null);
 
         // Get the item name from the cursor
         if (cursor.moveToNext()) {
             price = cursor.getString(cursor.getColumnIndexOrThrow("UNIT_PRICE"));
         }
 
-        // Close the cursor and database
         cursor.close();
         db.close();
 
-        // Return the item name
         return price;
     }
 
