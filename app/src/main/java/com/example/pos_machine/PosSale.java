@@ -124,7 +124,6 @@ public class PosSale extends Fragment {
         });
 
 
-
         resetBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -136,7 +135,6 @@ public class PosSale extends Fragment {
             }
         });
 
-        // Inflate the layout for this fragment
         return nv;
     }
 }

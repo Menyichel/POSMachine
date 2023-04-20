@@ -16,7 +16,6 @@ public class DB extends SQLiteOpenHelper {
         super(context, "PosDB.db", null, 1);
     }
 
-
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create Table ItemInfo(CODE TEXT primary key, ITEM TEXT , UNIT INT , UNIT_PRICE TEXT)");
@@ -42,7 +41,6 @@ public class DB extends SQLiteOpenHelper {
             return true;
         }
     }
-
 
     public String searchItem(String searchTerm) {
         String itemName = null;

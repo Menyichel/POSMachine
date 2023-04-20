@@ -70,8 +70,6 @@ public class PosRegister extends Fragment {
         });
 
 
-
-        // Inflate the layout for this fragment
         return n;
     }
 
